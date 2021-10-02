@@ -1,8 +1,9 @@
-import React from "react";
-import styles from "./styles";
+import React from 'react'
+import styles from './styles'
+import { RecyclerListView } from 'recyclerlistview'
 
 export default function Recycler(props) {
-  const { dataProvider, layoutProvider, renderItem } = props;
+  const { dataProvider, layoutProvider, renderItem } = props
   return (
     <RecyclerListView
       style={styles.recycler}
@@ -10,5 +11,5 @@ export default function Recycler(props) {
       dataProvider={dataProvider}
       layoutProvider={layoutProvider}
     />
-  );
+  )
 }

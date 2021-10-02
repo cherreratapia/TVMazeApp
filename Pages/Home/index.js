@@ -7,11 +7,13 @@ import {
   ActivityIndicator,
 } from "react-native";
 import { DataProvider, LayoutProvider } from "recyclerlistview";
+import Recycler from "../../Components/Recycler";
+import useColor from "../../helpers/hooks/useColor";
+import request from "../../helpers/misc/request";
 
 const { width, height } = Dimensions.get("window");
 export default function Home() {
-  // const color = useColor();
-  const color = "#000";
+  const color = useColor();
   const [shows, setShows] = useState([]);
   const [dataProvider, setDataProvider] = useState(
     new DataProvider((r1, r2) => {
@@ -29,16 +31,16 @@ export default function Home() {
   );
   const [isLoading, setLoading] = useState(true);
 
-  // const fetchShows = async () => {
-  //   const response = await request("/shows");
-  //   setShows([...response]);
-  //   setDataProvider(
-  //     new DataProvider((r1, r2) => {
-  //       return r1 !== r2;
-  //     }).cloneWithRows(response)
-  //   );
-  //   setLoading(false);
-  // };
+  const fetchShows = async () => {
+    const response = await request("/shows");
+    setShows([...response]);
+    setDataProvider(
+      new DataProvider((r1, r2) => {
+        return r1 !== r2;
+      }).cloneWithRows(response)
+    );
+    setLoading(false);
+  };
 
   const renderItem = (type, item, index) => (
     <View style={{ width, height: 100, paddingHorizontal: 16 }}>
@@ -48,9 +50,9 @@ export default function Home() {
     </View>
   );
 
-  // useEffect(() => {
-  //   fetchShows();
-  // }, []);
+  useEffect(() => {
+    fetchShows();
+  }, []);
 
   if (isLoading) {
     return (
