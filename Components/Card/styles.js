@@ -7,8 +7,32 @@ export default StyleSheet.create({
     height: 100,
     paddingHorizontal: 16,
   },
-  text: {
+  row: {
+    flexDirection: 'row',
+    paddingVertical: 8,
+  },
+  image: {
+    height: 80,
+    width: 80,
+  },
+  information: {
+    paddingVertical: 8,
+    marginLeft: 16,
+  },
+  title: {
     fontFamily: 'open-sans-semibold',
-    fontSize: 26,
+    fontSize: 16,
+  },
+  summary: {
+    fontFamily: 'open-sans-semibold',
+    fontSize: 14,
+  },
+  status: {
+    fontFamily: 'open-sans-semibold',
+    fontSize: 14,
+  },
+  rating: {
+    fontFamily: 'open-sans-semibold',
+    fontSize: 14,
   },
 })
