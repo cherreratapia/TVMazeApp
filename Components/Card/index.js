@@ -14,7 +14,7 @@ export default function Card(props) {
           <Image
             source={{ uri: show.image.medium }}
             style={styles.image}
-            resizeMode="cover"
+            resizeMode="contain"
           />
 
           <View style={styles.information}>

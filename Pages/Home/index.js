@@ -32,7 +32,7 @@ export default function Home(props) {
     new LayoutProvider(
       () => 0,
       (type, dim, index) => {
-        dim.height = index === 0 ? 145 : 100
+        dim.height = 100
         dim.width = width
       }
     )
@@ -51,17 +51,9 @@ export default function Home(props) {
     )
   }
 
-  const renderItem = (type, item, index) => {
-    if (index === 0) {
-      return (
-        <>
-          <Search filter={filter} setFilter={setFilter} />
-          <Card show={item} navigation={navigation} />
-        </>
-      )
-    }
-    return <Card show={item} navigation={navigation} />
-  }
+  const renderItem = (type, item, index) => (
+    <Card show={item} navigation={navigation} />
+  )
 
   useEffect(() => {
     initialFetch()
@@ -76,6 +68,7 @@ export default function Home(props) {
 
   return (
     <SafeAreaView style={styles.container}>
+      <Search filter={filter} setFilter={setFilter} />
       {isLoading ? (
         <ActivityIndicator />
       ) : (

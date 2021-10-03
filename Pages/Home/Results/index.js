@@ -6,7 +6,7 @@ import Search from '../../../Components/Search'
 import request from '../../../helpers/misc/request'
 
 export default function Results(props) {
-  const { filter, setFilter } = props
+  const { filter } = props
   const [shows, setShows] = useState([])
 
   const searchShows = async () => {
@@ -24,7 +24,6 @@ export default function Results(props) {
   return (
     <SafeAreaView>
       <FlatList
-        ListHeaderComponent={<Search filter={filter} setFilter={setFilter} />}
         data={shows}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
