@@ -20,11 +20,7 @@ export default function Title(props) {
       <RenderHtml
         contentWidth={Dimensions.get('window').width - 32}
         source={{ html: summary }}
-        baseStyle={{
-          fontFamily: 'open-sans-regular',
-          fontSize: 14,
-          color: 'rgba(80,80,80,0.8)',
-        }}
+        baseStyle={styles.summary}
       />
     </View>
   )

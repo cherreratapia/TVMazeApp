@@ -1,6 +1,6 @@
 import { Dimensions, StyleSheet } from 'react-native'
 const maxWidth = Dimensions.get('window').width - 32
-console.log('🚀 ~ file: styles.js ~ line 3 ~ maxWidth', maxWidth)
+
 export default StyleSheet.create({
   container: {
     padding: 16,
@@ -23,5 +23,10 @@ export default StyleSheet.create({
   image: {
     width: maxWidth,
     height: maxWidth,
+  },
+  summary: {
+    fontFamily: 'open-sans-regular',
+    fontSize: 14,
+    color: 'rgba(80,80,80,0.8)',
   },
 })

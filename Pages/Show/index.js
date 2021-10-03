@@ -44,7 +44,7 @@ export default function Show(props) {
           return <SeasonTitle header={header} />
         }}
         stickySectionHeadersEnabled={false}
-        renderItem={({ item }) => <Episode {...item} />}
+        renderItem={({ item }) => <Episode {...item} navigation={navigation} />}
       />
       {isLoadingEpisodes ? <ActivityIndicator /> : null}
     </View>

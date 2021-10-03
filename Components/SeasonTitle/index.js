@@ -1,7 +1,8 @@
 import React from 'react'
 import { View, Text } from 'react-native'
-import getSeasonTitle from './getSeasonTitle'
+import getSeasonTitle from '../../helpers/misc/getSeasonTitle'
 import styles from './styles'
+
 export default function SeasonTitle(props) {
   const { header } = props
   if (!header) return null
