@@ -1,48 +1,52 @@
-import React from 'react'
-import { SectionList } from 'react-native'
+import React, { useEffect, useState } from 'react'
+import { View, ActivityIndicator, SectionList } from 'react-native'
+import Episode from '../../Components/Episode'
+import SeasonTitle from '../../Components/SeasonTitle'
 import getNavigationParam from '../../helpers/misc/getNavigatorParam'
-import Row from './Row'
+import request from '../../helpers/misc/request'
+import formatEpisodesSection from './formatEpisodesSection'
+import getShowInfoSection from './getShowInfoSection'
 import Title from './Title'
 
-const ArrToText = (arr) =>
-  arr.reduce((acc, curr, idx) => {
-    if (!acc || (!acc && idx === arr.length)) return curr
-    if (idx === arr.length - 1) return (acc += ` & ${curr}`)
-    return (acc += `, ${curr}`)
-  })
-
 export default function Show(props) {
+  const { navigation } = props
   const show = getNavigationParam(props, 'show')
-  const sections = [
-    {
-      data: [
-        {
-          title: 'On',
-          data: `${ArrToText(show.schedule.days)} at ${show.schedule.time}`,
-        },
-      ],
-    },
-    {
-      data: [
-        {
-          title: 'Genres',
-          data: `${ArrToText(show.genres)} `,
-        },
-      ],
-    },
-  ]
+  const [isLoadingEpisodes, setLoadingEpisodes] = useState(true)
+  const [sections, setSections] = useState([...getShowInfoSection(show)])
+
+  const fetchEpisodes = async () => {
+    const response = await request(`/shows/${show.id}/episodes`)
+    setSections([...sections, ...formatEpisodesSection(response)])
+    setLoadingEpisodes(false)
+  }
+
+  useEffect(() => {
+    if (!show) return
+    fetchEpisodes()
+  }, [])
+
+  if (!show) return navigation.goBack()
 
   return (
-    <SectionList
-      sections={sections}
-      ListHeaderComponent={
-        <Title
-          title={show.name}
-          image={show.image.medium}
-          summary={show.summary}
-        />
-      }
-      renderItem={({ item }) => <Row {...item} />}
-    />
+    <View>
+      <SectionList
+        sections={sections}
+        ListHeaderComponent={
+          <Title
+            title={show.name}
+            image={show.image.medium}
+            summary={show.summary}
+          />
+        }
+        renderSectionHeader={({ section }) => {
+          const { header } = section
+          if (!header) return null
+          return <SeasonTitle header={header} />
+        }}
+        stickySectionHeadersEnabled={false}
+        renderItem={({ item }) => <Episode {...item} />}
+      />
+      {isLoadingEpisodes ? <ActivityIndicator /> : null}
+    </View>
   )
 }

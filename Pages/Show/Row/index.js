@@ -4,6 +4,7 @@ import styles from './styles'
 
 export default function Row(props) {
   const { title, data } = props
+  console.log('🚀 ~ file: index.js ~ line 7 ~ Row ~ title', title)
   return (
     <View style={styles.container}>
       <View style={styles.row}>
