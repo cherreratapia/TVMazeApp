@@ -4,11 +4,12 @@
     "es2021": true
   },
   "extends": ["plugin:react/recommended", "airbnb"],
+  "parser": "babel-eslint",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": 12,
+    "ecmaVersion": 2020,
     "sourceType": "module"
   },
   "plugins": ["react", "plugin:prettier/recommended"],

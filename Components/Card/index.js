@@ -4,24 +4,24 @@ import useColor from '../../helpers/hooks/useColor'
 import styles from './styles'
 
 export default function Card(props) {
-  const { item } = props
+  const { show, navigation } = props
   const color = useColor()
 
   return (
-    <Pressable onPress={() => console.log(`Selected Show: ${item.id}`)}>
-      <View key={item.id} style={styles.container}>
+    <Pressable onPress={() => navigation.navigate('Show', { show })}>
+      <View key={show.id} style={styles.container}>
         <View style={styles.row}>
           <Image
-            source={{ uri: item.image.medium }}
+            source={{ uri: show.image.medium }}
             style={styles.image}
             resizeMode="cover"
           />
 
           <View style={styles.information}>
-            <Text style={[color, styles.text]}>{item.name}</Text>
+            <Text style={[color, styles.text]}>{show.name}</Text>
             <View style={styles.row}>
-              <Text style={[color, styles.text]}>{item.rating.average}/10</Text>
-              <Text style={[color, styles.text]}>Status: {item.status}</Text>
+              <Text style={[color, styles.text]}>{show.rating.average}/10</Text>
+              <Text style={[color, styles.text]}>Status: {show.status}</Text>
             </View>
           </View>
         </View>

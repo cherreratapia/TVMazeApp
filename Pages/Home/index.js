@@ -17,7 +17,8 @@ import useDebounce from '../../helpers/hooks/useDebounce'
 import Results from './Results'
 
 const { width } = Dimensions.get('window')
-export default function Home() {
+export default function Home(props) {
+  const { navigation } = props
   const [filter, setFilter] = useState()
   const [activePage, setActivePage] = useState(0)
   const [isLoading, setLoading] = useState(true)
@@ -55,11 +56,11 @@ export default function Home() {
       return (
         <>
           <Search filter={filter} setFilter={setFilter} />
-          <Card item={item} />
+          <Card show={item} navigation={navigation} />
         </>
       )
     }
-    return <Card item={item} />
+    return <Card show={item} navigation={navigation} />
   }
 
   useEffect(() => {

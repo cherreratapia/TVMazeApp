@@ -14,7 +14,7 @@ export default function Results(props) {
     setShows([...response])
   }
 
-  const renderItem = ({ item, index }) => <Card key={index} item={item.show} />
+  const renderItem = ({ item, index }) => <Card key={index} show={item.show} />
 
   useEffect(() => {
     if (!filter) return
