@@ -139,7 +139,7 @@ export default function PhoneLayout(props) {
       >
         {hasLocalAuth ? (
           <TouchableOpacity onPress={onLocalAuth} style={styles.localAuth}>
-            <FontAwesome5 name="fingerprint" size={64} color="green" />
+            <FontAwesome5 name="fingerprint" size={64} color="#E5E5E5" />
           </TouchableOpacity>
         ) : null}
         <TouchableOpacity onPress={() => onPress(0)}>
