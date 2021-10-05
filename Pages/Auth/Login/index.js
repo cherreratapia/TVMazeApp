@@ -73,7 +73,7 @@ export default function Login(props) {
   }
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <UserPermission
         showModal={showModal}
         setShowModal={setShowModal}

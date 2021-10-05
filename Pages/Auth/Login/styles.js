@@ -1,6 +1,11 @@
 import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    marginVertical: 32,
+  },
   titleContainer: {
     alignItems: 'center',
     marginBottom: 40,
