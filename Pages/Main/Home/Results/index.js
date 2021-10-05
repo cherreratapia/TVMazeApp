@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { SafeAreaView, FlatList } from 'react-native'
-import Card from '../../../Components/Card'
-
-import Search from '../../../Components/Search'
-import request from '../../../helpers/misc/request'
+import Card from '../../../../Components/Card'
+import request from '../../../../helpers/misc/request'
 
 export default function Results(props) {
   const { filter } = props

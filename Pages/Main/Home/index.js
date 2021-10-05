@@ -9,11 +9,11 @@ import {
 } from 'react-native'
 import styles from './styles'
 import { DataProvider, LayoutProvider } from 'recyclerlistview'
-import Recycler from '../../Components/Recycler'
-import Search from '../../Components/Search'
-import request from '../../helpers/misc/request'
-import Card from '../../Components/Card'
-import useDebounce from '../../helpers/hooks/useDebounce'
+import Recycler from '../../../Components/Recycler'
+import Search from '../../../Components/Search'
+import request from '../../../helpers/misc/request'
+import Card from '../../../Components/Card'
+import useDebounce from '../../../helpers/hooks/useDebounce'
 import Results from './Results'
 
 const { width } = Dimensions.get('window')
