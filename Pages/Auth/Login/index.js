@@ -15,7 +15,6 @@ export default function Login(props) {
   const [pin, setPin] = useState('')
   const [error, setError] = useState(false)
   const [retry, setRetry] = useState(3)
-  // const [userGaveAccess, setUserAccess] = useState(false)
   const [showModal, setShowModal] = useState(false)
 
   const onValidate = async () => {

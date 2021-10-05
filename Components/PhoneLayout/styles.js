@@ -25,10 +25,7 @@ export default StyleSheet.create({
     borderRadius: 999,
   },
   localAuth: {
-    paddingVertical: 24,
-    paddingHorizontal: 32,
-    backgroundColor: '#E5E5E5',
-    borderRadius: 999,
-    marginRight: 28,
+    marginRight: 40,
+    paddingLeft: 4,
   },
 })

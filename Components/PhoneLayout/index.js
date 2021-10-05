@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react'
 import { View, Animated, TouchableOpacity, Text } from 'react-native'
 import styles from './styles'
+import { FontAwesome5 } from '@expo/vector-icons'
 
 export default function PhoneLayout(props) {
   const { onPress, shouldShake, hasLocalAuth, onLocalAuth } = props
@@ -138,7 +139,7 @@ export default function PhoneLayout(props) {
       >
         {hasLocalAuth ? (
           <TouchableOpacity onPress={onLocalAuth} style={styles.localAuth}>
-            <Text style={styles.number}>X</Text>
+            <FontAwesome5 name="fingerprint" size={64} color="green" />
           </TouchableOpacity>
         ) : null}
         <TouchableOpacity onPress={() => onPress(0)}>
