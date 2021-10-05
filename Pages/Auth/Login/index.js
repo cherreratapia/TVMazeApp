@@ -11,13 +11,12 @@ export default function Login(props) {
   const { setLogged, hasLocalAuth } = props
   const { hasDeviceAuthPermission, setDeviceAuthPermission } =
     useContext(UserContext)
+
   const [pin, setPin] = useState('')
   const [error, setError] = useState(false)
   const [retry, setRetry] = useState(3)
   // const [userGaveAccess, setUserAccess] = useState(false)
-  const [showModal, setShowModal] = useState(
-    !hasDeviceAuthPermission || hasLocalAuth || false
-  )
+  const [showModal, setShowModal] = useState(false)
 
   const onValidate = async () => {
     if (pin.length < 5) return
@@ -50,6 +49,12 @@ export default function Login(props) {
     if (error) console.log('THERE WAS AN ERROR')
     if (success) setLogged(true)
   }
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowModal((!hasDeviceAuthPermission && hasLocalAuth) || false)
+    }, 300)
+  }, [])
 
   useEffect(() => {
     onValidate()

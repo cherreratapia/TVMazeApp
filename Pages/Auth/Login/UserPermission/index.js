@@ -14,7 +14,7 @@ export default function UserPermission(props) {
   const { showModal, setShowModal, setDeviceAuthPermission } = props
 
   const onGrantAccess = async () => {
-    await setDeviceAuth('true')
+    await setDeviceAuth(true)
     setDeviceAuthPermission(true)
     setShowModal(!showModal)
   }
