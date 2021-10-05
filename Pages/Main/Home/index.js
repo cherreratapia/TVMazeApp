@@ -77,13 +77,6 @@ export default function Home(props) {
           layoutProvider={layoutProvider}
           renderItem={renderItem}
           onEndReached={() => setActivePage(activePage + 1)}
-          keyboardDismissMode={() =>
-            Platform.OS === 'ios' ? 'interactive' : 'on-drag'
-          }
-          onScroll={Platform.OS === 'ios' ? null : Keyboard.dismiss()}
-          keyboardShouldPersistTaps="always"
-          renderAheadOffset={1000}
-          onEndReachedThreshold={1000}
           renderFooter={() => (
             <View>
               <Text>Cargando...</Text>

@@ -1,5 +1,6 @@
 import React from 'react'
-import { View, Text, Image, Dimensions } from 'react-native'
+import { SafeAreaView, Text, Image, Dimensions } from 'react-native'
+import styles from './styles'
 import getNavigationParam from '../../helpers/misc/getNavigatorParam'
 import getSeasonTitle from '../../helpers/misc/getSeasonTitle'
 import RenderHtml from 'react-native-render-html'
@@ -10,7 +11,7 @@ export default function Episode(props) {
 
   if (!episode) navigation.goBack()
   return (
-    <View style={{ alignItems: 'center' }}>
+    <SafeAreaView style={styles.container}>
       {episode.image && episode.image.medium ? (
         <Image
           style={{ width: 300, height: 100 }}
@@ -30,6 +31,6 @@ export default function Episode(props) {
           color: 'rgba(80,80,80,0.8)',
         }}
       />
-    </View>
+    </SafeAreaView>
   )
 }

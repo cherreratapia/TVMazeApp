@@ -10,17 +10,18 @@ const Tab = createBottomTabNavigator()
 export default function Pages() {
   // const { isLogged } = useContext(UserContext)
   const isLogged = true
-  const tabOptions = { title: 'Series List', tabBarShowLabel: false }
 
   if (!isLogged) return <Auth />
 
   return (
-    <Tab.Navigator initialRouteName="Main">
+    <Tab.Navigator
+      initialRouteName="Main"
+      screenOptions={{ headerShown: false }}
+    >
       <Tab.Screen
         name="Main"
         component={Main}
         options={{
-          ...tabOptions,
           tabBarIcon: () => (
             <FontAwesome5 name="list" size={32} color="#505050" />
           ),
@@ -30,7 +31,6 @@ export default function Pages() {
         name="Favorites"
         component={Favorites}
         options={{
-          ...tabOptions,
           tabBarIcon: () => (
             <FontAwesome5
               name="heart"

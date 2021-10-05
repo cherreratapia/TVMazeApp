@@ -6,6 +6,9 @@ export default function User(props) {
   const [hasDeviceAuthPermission, setDeviceAuthPermission] = useState(
     props.hasDeviceAuthPermission || false
   )
+  const [favorites, setFavorites] = useState(props.favoritesIds || [])
+  console.log('🚀 ~ file: index.js ~ line 10 ~ User ~ favorites', favorites)
+
   const [isLogged, setLogged] = useState(false)
   return (
     <UserContext.Provider
@@ -16,6 +19,8 @@ export default function User(props) {
         setLogged,
         hasDeviceAuthPermission,
         setDeviceAuthPermission,
+        favorites,
+        setFavorites,
       }}
     >
       {props.children}

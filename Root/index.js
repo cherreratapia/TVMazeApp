@@ -9,6 +9,8 @@ export default function Root(props) {
       <User
         hasPin={props.userHasPin}
         hasDeviceAuthPermission={props.hasDeviceAuthPermission}
+        favoritesIds={props.favoritesIds}
+        setFavoritesIds={props.setFavoritesIds}
       >
         <NavigationContainer>{props.children}</NavigationContainer>
       </User>

@@ -7,18 +7,34 @@ import Root from './Root'
 import Pages from './Pages'
 import hasPin from './helpers/auth/hasPin'
 import hasDeviceAuth from './helpers/auth/hasDeviceAuth'
+import getFavoritesIds from './helpers/misc/getFavoritesIds'
+import getFavorites from './helpers/misc/getFavorites'
 
 export default function App() {
   const [isReady, setReady] = useState()
   const [userHasPin, setHasPin] = useState(false)
   const [hasDeviceAuthPermission, setHasDeviceAuthPermission] = useState(false)
+  const [favoritesIds, setFavoritesIds] = useState(false)
+
   const getAuthData = async () => {
-    const [hasPinResult, hasDeviceAuthResult] = await Promise.all([
+    const [
+      hasPinResult,
+      hasDeviceAuthResult,
+      favoritesIdsResult,
+      favoritesResult,
+    ] = await Promise.all([
       hasPin(),
       hasDeviceAuth(),
+      getFavoritesIds(),
+      getFavorites(),
     ])
+    console.log(
+      '🚀 ~ file: App.js ~ line 21 ~ getAuthData ~ favoritesResult',
+      favoritesResult
+    )
     setHasPin(hasPinResult)
     setHasDeviceAuthPermission(hasDeviceAuthResult)
+    setFavoritesIds(favoritesIdsResult)
   }
 
   const onFinish = () => {
@@ -36,6 +52,7 @@ export default function App() {
         <Root
           userHasPin={userHasPin}
           hasDeviceAuthPermission={hasDeviceAuthPermission}
+          favoritesIds={favoritesIds}
         >
           <Pages />
         </Root>

@@ -10,6 +10,7 @@ export default StyleSheet.create({
     fontFamily: 'open-sans-semibold',
     fontSize: 32,
     textTransform: 'uppercase',
+    marginRight: 32,
   },
   imageContainer: {
     padding: 8,
@@ -28,5 +29,8 @@ export default StyleSheet.create({
     fontFamily: 'open-sans-regular',
     fontSize: 14,
     color: 'rgba(80,80,80,0.8)',
+  },
+  row: {
+    flexDirection: 'row',
   },
 })

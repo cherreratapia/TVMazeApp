@@ -7,7 +7,10 @@ import Show from '../Show'
 const Stack = createNativeStackNavigator()
 export default function Main() {
   return (
-    <Stack.Navigator initialRouteName="Home">
+    <Stack.Navigator
+      initialRouteName="Home"
+      screenOptions={{ headerShown: false }}
+    >
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Show" component={Show} />
       <Stack.Screen name="Episode" component={Episode} />
