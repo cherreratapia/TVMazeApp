@@ -1,30 +1,53 @@
-import React, { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
-import AppLoading from "expo-app-loading";
-import { StatusBar } from "expo-status-bar";
-import loadAssets from "./helpers/misc/loadAssets";
-import Root from "./Root";
-import Pages from "./Pages";
+import React, { useState } from 'react'
+import { StyleSheet, Text, View } from 'react-native'
+import AppLoading from 'expo-app-loading'
+import { StatusBar } from 'expo-status-bar'
+import loadAssets from './helpers/misc/loadAssets'
+import Root from './Root'
+import Pages from './Pages'
+import hasPin from './helpers/auth/hasPin'
+import hasDeviceAuth from './helpers/auth/hasDeviceAuth'
 
 export default function App() {
-  const [isReady, setReady] = useState();
+  const [isReady, setReady] = useState()
+  const [userHasPin, setHasPin] = useState(false)
+  const [hasDeviceAuthPermission, setHasDeviceAuthPermission] = useState(false)
+  const getAuthData = async () => {
+    const [hasPinResult, hasDeviceAuthResult] = await Promise.all([
+      hasPin(),
+      hasDeviceAuth(),
+    ])
+    setHasPin(hasPinResult)
+    setHasDeviceAuthPermission(hasDeviceAuthResult)
+  }
+
+  const onFinish = () => {
+    getAuthData()
+      .then(() => setReady(true))
+      .catch((error) => {
+        console.log('error?', error)
+      })
+  }
 
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
       {isReady ? (
-        <Root>
+        <Root
+          userHasPin={userHasPin}
+          hasDeviceAuthPermission={hasDeviceAuthPermission}
+        >
           <Pages />
         </Root>
       ) : (
         <AppLoading
           startAsync={loadAssets}
-          onFinish={() => setReady(true)}
+          onFinish={onFinish}
           onError={console.warn}
         />
       )}
     </View>
-  );
+  )
 }
 
-const styles = StyleSheet.create({ container: { flex: 1 } });
+const styles = StyleSheet.create({ container: { flex: 1 } })

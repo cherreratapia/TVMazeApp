@@ -9,7 +9,6 @@ export default function Episode(props) {
   const episode = getNavigationParam(props, 'episode')
 
   if (!episode) navigation.goBack()
-  console.log('🚀 ~ file: index.js ~ line 7 ~ Episode ~ episode', episode)
   return (
     <View style={{ alignItems: 'center' }}>
       {episode.image && episode.image.medium ? (
