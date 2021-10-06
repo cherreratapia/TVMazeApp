@@ -1,7 +1,11 @@
 <h1 align="center">
     TV Maze React Native App
 </h1>
+![Simulator Screen Shot - iPhone 12 Pro Max - 2021-10-06 at 17 31 21](https://user-images.githubusercontent.com/34661963/136278689-8ba034d2-9bbc-4c00-8e69-f6c376128903.png)
+
+
 ### Requirements
+
 * [NodeJS](https://nodejs.org/en/) 
 * [Git](https://git-scm.com/)
 * [Watchman](https://facebook.github.io/watchman/docs/install.html) only for macOS users
@@ -27,14 +31,16 @@ git clone https://github.com/cherreratapia/TVMazeApp.git
 ```
 
 2.  Navigate to Root
-
-    cd TVMazeApp
+  
+```shell
+cd TVMazeApp
+```
 
 3.  **Install Packages**
 
-    ```shell
-    yarn install
-    ```
+```shell
+yarn install
+```
 
 4.  **Initialize EXPO**
 
