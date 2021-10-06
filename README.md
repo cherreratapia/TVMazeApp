@@ -2,7 +2,8 @@
     TV Maze React Native App
 </h1>
 
-![Simulator Screen Shot - iPhone 12 Pro Max - 2021-10-06 at 17 31 21](https://user-images.githubusercontent.com/34661963/136278689-8ba034d2-9bbc-4c00-8e69-f6c376128903.png)
+<img src="https://user-images.githubusercontent.com/34661963/136278689-8ba034d2-9bbc-4c00-8e69-f6c376128903.png" width="180" height="400">
+
 
 
 ### Requirements
