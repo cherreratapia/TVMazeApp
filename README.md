@@ -52,7 +52,7 @@ expo start
 
 5.  **Scan QR for testing**
 
-Your server is now running at http://localhost:19000/!. Check the port anyway.
+Your server should be  now running at http://localhost:19000/
 
 Scan QR code with your Expo Go app (download from [PlayStore](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=es_CL&gl=US) or [AppStore](https://apps.apple.com/cl/app/expo-go/id982107779))
 
