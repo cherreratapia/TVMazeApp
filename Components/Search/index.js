@@ -18,7 +18,7 @@ export default function Search(props) {
         />
       </View>
       {!!filter ? (
-        <Pressable onPress={() => setFilter()}>
+        <Pressable onPress={() => setFilter(null)}>
           <MaterialIcons name="cancel" size={20} color="#E5E5E5" />
         </Pressable>
       ) : null}

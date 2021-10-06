@@ -25,5 +25,6 @@ export default StyleSheet.create({
   text: {
     fontFamily: 'open-sans-regular',
     fontSize: 16,
+    paddingLeft: 4,
   },
 })
