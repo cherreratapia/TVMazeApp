@@ -1,7 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 export default async function (show, setFavorites) {
-  console.log('🚀 ~ file: removeFavorite.js ~ line 4 ~ show', show.id)
   try {
     const favoritesStored = await AsyncStorage.getItem('@favorites')
     let { favorites } = favoritesStored

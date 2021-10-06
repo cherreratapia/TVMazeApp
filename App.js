@@ -17,21 +17,13 @@ export default function App() {
   const [favoritesIds, setFavoritesIds] = useState(false)
 
   const getAuthData = async () => {
-    const [
-      hasPinResult,
-      hasDeviceAuthResult,
-      favoritesIdsResult,
-      favoritesResult,
-    ] = await Promise.all([
-      hasPin(),
-      hasDeviceAuth(),
-      getFavoritesIds(),
-      getFavorites(),
-    ])
-    console.log(
-      '🚀 ~ file: App.js ~ line 21 ~ getAuthData ~ favoritesResult',
-      favoritesResult
-    )
+    const [hasPinResult, hasDeviceAuthResult, favoritesIdsResult] =
+      await Promise.all([
+        hasPin(),
+        hasDeviceAuth(),
+        getFavoritesIds(),
+        getFavorites(),
+      ])
     setHasPin(hasPinResult)
     setHasDeviceAuthPermission(hasDeviceAuthResult)
     setFavoritesIds(favoritesIdsResult)

@@ -1,5 +1,5 @@
 import React, { useEffect, useState, Modal, useContext } from 'react'
-import { View, Text, SafeAreaView } from 'react-native'
+import { View, Text, SafeAreaView, Alert } from 'react-native'
 import PhoneLayout from '../../../Components/PhoneLayout'
 import validatePin from '../../../helpers/auth/validatePin'
 import styles from './styles'
@@ -14,6 +14,7 @@ export default function Login(props) {
 
   const [pin, setPin] = useState('')
   const [error, setError] = useState(false)
+  const [localAuthError, setLocalAuthError] = useState(false)
   const [retry, setRetry] = useState(3)
   const [showModal, setShowModal] = useState(false)
 
@@ -45,7 +46,11 @@ export default function Login(props) {
       options
     )
 
-    if (error) console.log('THERE WAS AN ERROR')
+    if (error)
+      Alert.alert(
+        'There was an error with Authentication',
+        'Please, Use your stored PIN'
+      )
     if (success) setLogged(true)
   }
 
