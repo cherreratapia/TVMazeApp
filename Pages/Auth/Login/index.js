@@ -14,7 +14,6 @@ export default function Login(props) {
 
   const [pin, setPin] = useState('')
   const [error, setError] = useState(false)
-  const [localAuthError, setLocalAuthError] = useState(false)
   const [retry, setRetry] = useState(3)
   const [showModal, setShowModal] = useState(false)
 
@@ -48,8 +47,8 @@ export default function Login(props) {
 
     if (error)
       Alert.alert(
-        'There was an error with Authentication',
-        'Please, Use your stored PIN'
+        'There was an error with your Device Authentication',
+        'Please, use your stored PIN'
       )
     if (success) setLogged(true)
   }

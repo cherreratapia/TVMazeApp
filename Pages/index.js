@@ -8,8 +8,7 @@ import Favorites from './Favorites'
 
 const Tab = createBottomTabNavigator()
 export default function Pages() {
-  // const { isLogged } = useContext(UserContext)
-  const isLogged = true
+  const { isLogged } = useContext(UserContext)
 
   if (!isLogged) return <Auth />
 

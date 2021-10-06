@@ -33,7 +33,7 @@ export default function App() {
     getAuthData()
       .then(() => setReady(true))
       .catch((error) => {
-        console.log('error?', error)
+        console.log('Error getting data from AsyncStorage', error)
       })
   }
 

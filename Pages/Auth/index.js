@@ -5,13 +5,8 @@ import Register from './Register'
 import * as LocalAuthentication from 'expo-local-authentication'
 
 export default function Auth() {
-  const {
-    hasPin,
-    setHasPin,
-    setLogged,
-    hasDeviceAuthPermission,
-    setDeviceAuthPermission,
-  } = useContext(UserContext)
+  const { hasPin, setHasPin, setLogged, hasDeviceAuthPermission } =
+    useContext(UserContext)
 
   const [hasHardwareAuth, setHardwareAuth] = useState(
     hasDeviceAuthPermission || false

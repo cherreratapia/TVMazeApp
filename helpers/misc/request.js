@@ -7,7 +7,6 @@ export default async function (path, options) {
     })
     return response.json()
   } catch (error) {
-    console.log('Fetch Error?', error)
     return []
   }
 }
