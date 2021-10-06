@@ -1,21 +1,27 @@
 import React from 'react'
 import styles from './styles'
-import { View, Text, TextInput, Pressable } from 'react-native'
+import { View, TextInput, Pressable } from 'react-native'
+import { MaterialIcons } from '@expo/vector-icons'
 
 export default function Search(props) {
   const { filter, setFilter } = props
 
   return (
     <View style={styles.container}>
-      <TextInput
-        style={styles.text}
-        onChangeText={setFilter}
-        value={filter}
-        placeholder="Search your favourite series"
-      />
-      <Pressable onPress={() => setFilter()}>
-        <Text style={styles.text}>X</Text>
-      </Pressable>
+      <View style={styles.row}>
+        <MaterialIcons name="search" size={20} color="#E5E5E5" />
+        <TextInput
+          style={styles.text}
+          onChangeText={setFilter}
+          value={filter}
+          placeholder="Look for that series you heard about"
+        />
+      </View>
+      {!!filter ? (
+        <Pressable onPress={() => setFilter()}>
+          <MaterialIcons name="cancel" size={20} color="#E5E5E5" />
+        </Pressable>
+      ) : null}
     </View>
   )
 }

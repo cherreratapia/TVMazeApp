@@ -53,6 +53,7 @@ export default function Show(props) {
     <SafeAreaView>
       <SectionList
         sections={sections}
+        keyExtractor={(item, index) => index}
         ListHeaderComponent={
           <Title
             title={show.name}

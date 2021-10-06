@@ -64,25 +64,26 @@ export default function Home(props) {
     fetchShows()
   }, [activePage])
 
-  if (debouncedFilter) return <Results filter={filter} setFilter={setFilter} />
+  const NoResults = () =>
+    isLoading ? (
+      <ActivityIndicator />
+    ) : (
+      <Recycler
+        dataProvider={dataProvider}
+        layoutProvider={layoutProvider}
+        renderItem={renderItem}
+        onEndReached={() => setActivePage(activePage + 1)}
+        renderFooter={() => <ActivityIndicator small="large" />}
+      />
+    )
 
   return (
     <SafeAreaView style={styles.container}>
       <Search filter={filter} setFilter={setFilter} />
-      {isLoading ? (
-        <ActivityIndicator />
+      {debouncedFilter ? (
+        <Results filter={debouncedFilter} />
       ) : (
-        <Recycler
-          dataProvider={dataProvider}
-          layoutProvider={layoutProvider}
-          renderItem={renderItem}
-          onEndReached={() => setActivePage(activePage + 1)}
-          renderFooter={() => (
-            <View>
-              <Text>Cargando...</Text>
-            </View>
-          )}
-        />
+        <NoResults navigation={navigation} />
       )}
     </SafeAreaView>
   )

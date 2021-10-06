@@ -1,12 +1,15 @@
 import React from 'react'
-import { SafeAreaView, Text, Image, Dimensions } from 'react-native'
+import { SafeAreaView, View, Text, Image, Dimensions } from 'react-native'
 import styles from './styles'
 import getNavigationParam from '../../helpers/misc/getNavigatorParam'
 import getSeasonTitle from '../../helpers/misc/getSeasonTitle'
 import RenderHtml from 'react-native-render-html'
+import useColor from '../../helpers/hooks/useColor'
+import { MaterialIcons } from '@expo/vector-icons'
 
 export default function Episode(props) {
   const { navigation } = props
+  const color = useColor()
   const episode = getNavigationParam(props, 'episode')
 
   if (!episode) navigation.goBack()
@@ -14,13 +17,20 @@ export default function Episode(props) {
     <SafeAreaView style={styles.container}>
       {episode.image && episode.image.medium ? (
         <Image
-          style={{ width: 300, height: 100 }}
-          source={{ uri: episode.image.medium }}
+          style={styles.image}
+          source={{ uri: episode.image.original || episode.image.medium }}
           resizeMode="contain"
         />
-      ) : null}
-      <Text>
-        {getSeasonTitle(episode.season)} {episode.number} · {episode.name}
+      ) : (
+        <View style={styles.image}>
+          <MaterialIcons name="broken-image" size={144} color="#505050" />
+        </View>
+      )}
+      <Text style={[styles.season, color]}>
+        {getSeasonTitle(episode.season)}
+      </Text>
+      <Text style={[styles.episode, color]}>
+        {episode.number} · {episode.name}
       </Text>
       <RenderHtml
         contentWidth={Dimensions.get('window').width - 32}

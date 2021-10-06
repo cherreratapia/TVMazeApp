@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { SafeAreaView, FlatList } from 'react-native'
+import { FlatList } from 'react-native'
 import Card from '../../../../Components/Card'
 import request from '../../../../helpers/misc/request'
 
 export default function Results(props) {
   const { filter } = props
+
   const [shows, setShows] = useState([])
 
   const searchShows = async () => {
@@ -20,12 +21,11 @@ export default function Results(props) {
   }, [])
 
   return (
-    <SafeAreaView>
-      <FlatList
-        data={shows}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-      />
-    </SafeAreaView>
+    <FlatList
+      data={shows}
+      renderItem={renderItem}
+      showsVerticalScrollIndicator={false}
+      keyExtractor={(item) => item.id}
+    />
   )
 }

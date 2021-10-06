@@ -3,19 +3,30 @@ import { StyleSheet, Dimensions } from 'react-native'
 const { width } = Dimensions.get('window')
 export default StyleSheet.create({
   container: {
-    width,
+    width: width - 32,
+    alignSelf: 'center',
     height: 100,
-    paddingHorizontal: 16,
+    paddingRight: 8,
+    borderBottomWidth: 1,
+    borderColor: 'rgba(80, 80, 80, 0.2)',
   },
   row: {
     flexDirection: 'row',
-    paddingVertical: 8,
+    alignItems: 'center',
+  },
+  rowBetween: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
   image: {
-    height: 80,
-    width: 80,
+    height: 100,
+    width: 70,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   information: {
+    flex: 1,
     paddingVertical: 8,
     marginLeft: 16,
   },
@@ -23,16 +34,14 @@ export default StyleSheet.create({
     fontFamily: 'open-sans-semibold',
     fontSize: 16,
   },
-  summary: {
+  text: {
     fontFamily: 'open-sans-semibold',
     fontSize: 14,
   },
   status: {
-    fontFamily: 'open-sans-semibold',
-    fontSize: 14,
+    marginLeft: 40,
   },
-  rating: {
-    fontFamily: 'open-sans-semibold',
-    fontSize: 14,
+  statusIcon: {
+    marginRight: 4,
   },
 })

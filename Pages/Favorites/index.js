@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { SafeAreaView, Dimensions } from 'react-native'
 import styles from './styles'
 import Search from '../../Components/Search'
@@ -32,7 +32,12 @@ export default function Favorites(props) {
 
   const getFavoritesShows = async () => {
     const favorites = await getFavorites()
-    setDataProvider(dataProvider.cloneWithRows(favorites))
+    setDataProvider(
+      dataProvider.cloneWithRows(
+        favorites.sort((a, b) => a.name.localeCompare(b.name))
+      )
+    )
+
     setLoading(false)
   }
 
@@ -43,10 +48,6 @@ export default function Favorites(props) {
   useEffect(() => {
     getFavoritesShows()
   }, [])
-
-  useFocusEffect(() => {
-    getFavoritesShows()
-  })
 
   return (
     <SafeAreaView style={styles.container}>

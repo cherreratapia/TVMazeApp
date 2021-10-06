@@ -1,5 +1,5 @@
 export default function (episodes) {
-  return episodes.reduce((prev, curr) => {
+  return (episodes || []).reduce((prev, curr) => {
     const idx = curr.season - 1
     const episode = {
       text: `${curr.number} · ${curr.name}`,

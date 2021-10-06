@@ -7,7 +7,6 @@ export default function User(props) {
     props.hasDeviceAuthPermission || false
   )
   const [favorites, setFavorites] = useState(props.favoritesIds || [])
-  console.log('🚀 ~ file: index.js ~ line 10 ~ User ~ favorites', favorites)
 
   const [isLogged, setLogged] = useState(false)
   return (

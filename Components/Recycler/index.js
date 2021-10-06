@@ -12,6 +12,8 @@ export default function Recycler(props) {
       rowRenderer={renderItem}
       dataProvider={dataProvider}
       layoutProvider={layoutProvider}
+      keyExtractor={(item) => item.id}
+      showsVerticalScrollIndicator={false}
       keyboardDismissMode={() =>
         Platform.OS === 'ios' ? 'interactive' : 'on-drag'
       }
