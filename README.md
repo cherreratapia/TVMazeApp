@@ -1,7 +1,9 @@
 <h1 align="center">
     TV Maze React Native App
 </h1>
+
 ### Requirements
+
 * [NodeJS](https://nodejs.org/en/) 
 * [Git](https://git-scm.com/)
 * [Watchman](https://facebook.github.io/watchman/docs/install.html) only for macOS users
@@ -27,14 +29,16 @@ git clone https://github.com/cherreratapia/TVMazeApp.git
 ```
 
 2.  Navigate to Root
-
-    cd TVMazeApp
+  
+```shell
+cd TVMazeApp
+```
 
 3.  **Install Packages**
 
-    ```shell
-    yarn install
-    ```
+```shell
+yarn install
+```
 
 4.  **Initialize EXPO**
 
